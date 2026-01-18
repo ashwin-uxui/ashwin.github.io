@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>BioScore</title>
+
+  <!-- PWA -->
+  <link rel="manifest" href="manifest.json" />
+  <meta name="theme-color" content="#0f0f0f"/>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- SPLASH -->
+  <section id="splash" class="screen active">
+    <h1>BioScore ✨</h1>
+    <p>Reveal your Instagram profile power</p>
+    <button onclick="goToUpload()">Get Started</button>
+  </section>
+
+  <!-- UPLOAD -->
+  <section id="upload" class="screen">
+    <h2>Upload Profile Screenshot</h2>
+
+    <label class="upload-box">
+      <input type="file" accept="image/*" onchange="handleUpload(event)" />
+      <span>📸 Tap to upload</span>
+    </label>
+
+    <div id="uploadStatus"></div>
+
+    <button id="analyzeBtn" onclick="analyzeProfile()" disabled>
+      Check My Score 🚀
+    </button>
+  </section>
+
+  <!-- RESULT -->
+  <section id="result" class="screen">
+    <h2>Your BioScore</h2>
+
+    <div class="score-card">
+      <canvas id="scratchCanvas"></canvas>
+
+      <div class="score-content">
+        <h1 id="score">78</h1>
+        <p>🔥 Looks promising!</p>
+      </div>
+    </div>
+
+    <button onclick="shareScore()">Share on Instagram 📤</button>
+    <button class="secondary" onclick="goHome()">Home</button>
+  </section>
+
+  <script src="app.js"></script>
+</body>
+</html>
